@@ -24,6 +24,6 @@ jobs:
       run: |
         ls -al
         mkdir relation_engine/to_validate
-        cp exascale_data/prerelease/* relation_engine/to_validate
+        cp -r exascale_data/prerelease/* relation_engine/to_validate
         cd relation_engine
         make djornl_validate
