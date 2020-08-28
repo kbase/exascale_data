@@ -7,17 +7,15 @@ jobs:
     steps:
     - name: checkout git repo
       uses: actions/checkout@v2
+      with:
+        path: exascale_data
 
-    - name: where are we?
-      shell: bash
-      run: |
-        pwd
-        ls -al
     - name: checkout RE engine repo
       uses: actions/checkout@v2
       with:
         repository: kbase/relation_engine
         ref: parser_validation
+        path: relation_engine
 
     - name: copy dataset to correct directory
       shell: bash
@@ -25,6 +23,7 @@ jobs:
         GITHUB_ACTIONS_CI: 1
       run: |
         ls -al
-        mkdir to_validate
-        cp prerelease/* relation_engine/to_validate
+        mkdir relation_engine/to_validate
+        cp exascale_data/prerelease/* relation_engine/to_validate
+        cd relation_engine
         make djornl_validate
