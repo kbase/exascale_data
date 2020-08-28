@@ -22,8 +22,11 @@ jobs:
       env:
         GITHUB_ACTIONS_CI: 1
       run: |
-        ls -al
         mkdir relation_engine/to_validate
-        cp -r exascale_data/prerelease/* relation_engine/to_validate
+        cp -r relation_engine/spec/test/djornl/test_data/* relation_engine/to_validate
+
+    - name: run validation!
+      shell: bash
+      run: |
         cd relation_engine
         make djornl_validate
