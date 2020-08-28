@@ -8,6 +8,11 @@ jobs:
     - name: checkout git repo
       uses: actions/checkout@v2
 
+    - name: where are we?
+      shell: bash
+      run: |
+        pwd
+        ls -al
     - name: checkout RE engine repo
       uses: actions/checkout@v2
       with:
@@ -20,6 +25,6 @@ jobs:
         GITHUB_ACTIONS_CI: 1
       run: |
         ls -al
-        mkdir relation_engine/to_validate
+        mkdir to_validate
         cp prerelease/* relation_engine/to_validate
         make djornl_validate
