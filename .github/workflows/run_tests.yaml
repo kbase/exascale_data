@@ -1,0 +1,25 @@
+name: Data QC
+on:
+  [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout git repo
+      uses: actions/checkout@v2
+
+    - name: checkout RE engine repo
+      uses: actions/checkout@v2
+      with:
+        repository: kbase/relation_engine
+        ref: parser_validation
+
+    - name: copy dataset to correct directory
+      shell: bash
+      env:
+        GITHUB_ACTIONS_CI: 1
+      run: |
+        ls -al
+        mkdir relation_engine/to_validate
+        cp prerelease/* relation_engine/to_validate
+        make djornl_validate
