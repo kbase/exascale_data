@@ -1,6 +1,12 @@
-Data file formats
+## Data file formats
 
-## Cluster files
+This file describes the format of the files that can be parsed and loaded into ArangoDB by the DJORNL parser, https://github.com/kbase/relation_engine/blob/develop/importers/djornl/parser.py.
+
+Given a file in TSV or CSV format, the parser can load data from the columns specified in the descriptions below.
+
+Column names are case-insensitive; the parser converts them all to lower case.
+
+### Cluster files
 
 TSV data
 
@@ -11,38 +17,40 @@ TSV data
 
 Notes: the node IDs should be separated by commas, rather than using the same separator as the column data uses.
 
-## Edge files
+### Edge files
 
 | required? | column name | old name | data type | contents |
 |-|-|-|-|-|
 | R | node1      | node1         | string | node ID |
 | R | node2      | node1         | string | node ID |
 | R | score      | edge          | number | edge weight/score |
-| R | edge_type  | layer_descrip | string | must be one of the edge types listed in ...; |
+| R | edge_type  | layer_descrip | string | must be one of the edge types listed in the [edge schema file](https://github.com/kbase/relation_engine/blob/develop/spec/datasets/djornl/edge_type.yaml) |
 
-Notes: data from the `edge_descrip` column is tied to the `edge_type`, so it can be captured elsewhere
+Notes: data from the `edge_descrip` column is tied to the `edge_type`, so it can be captured elsewhere. The parser will ignore this column.
 
-## Node files
+### Node files
 
 | required? | column name | old name | data type | contents |
 |-|-|-|-|-|
 | R | node_id | - | string | unique node ID |
-| R | node_type | - | string | one of the node types listed in ... |
+| R | node_type | - | string | one of the node types listed in the [node schema file](https://github.com/kbase/relation_engine/blob/develop/spec/datasets/djornl/node_type.yaml) |
 | | transcript | - | string | transcript ID |
-| | gene_symbol | - | string |
-| | gene_full_name | - | string |
-| | gene_model_type | - | string |
-| | tair_computational_description | TAIR_Computational_description | string |
-| | TAIR_Curator_summary | - | string |
-| | TAIR_short_description | - | string |
-| | go_description | GO_descr | string | GO term name(s) -- to be revisited |
+| | gene_symbol | - | string | gene symbol |
+| | gene_full_name | - | string | full name |
+| | gene_model_type | - | string | gene model name |
+| | tair_computational_description | - | string | |
+| | tair_curator_summary | - | string | |
+| | tair_short_description | - | string | |
+| | go_description | GO_descr | string | GO term name(s) -- see note below |
 | | go_terms | - | string | GO term IDs, comma-separated |
-| | MapMan_bin | - | string | MapMan ID |
-| | MapMan_name | - | string | MapMan term name |
+| | mapman_bin | - | string | MapMan ID |
+| | mapman_name | - | string | MapMan term name |
 | | mapman_description | MapMan_descr | string | MapMan description |
-| | pheno_AraGWAS_ID | - | string |  |
+| | pheno_aragwas_id | - | string |  |
 | | pheno_description | pheno_descrip1 | string |  |
-| | pheno_pto_name | pheno_descrip2 | string |  |
-| | pheno_pto_description | pheno_descrip3 | string |  |
-| | pheno_reference | pheno_ref | string |  |
+| | pheno_pto_name | pheno_descrip2 | string | Plant Trait Ontology (PTO) term name |
+| | pheno_pto_description | pheno_descrip3 | string | PTO term description |
+| | pheno_reference | pheno_ref | string | Reference for phenotype |
 | | user_notes | - | string | freeform text |
+
+Note: GO descriptions cannot be parsed into single term names at present as the data in the field is comma-separated, but does not take into account term names with commas in them.
