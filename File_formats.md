@@ -6,6 +6,10 @@ Given a file in TSV or CSV format, the parser can load data from the columns spe
 
 Column names are case-insensitive; the parser converts them all to lower case.
 
+### Manifest file
+
+This is used to describe the list of files in each release, and is used by the parser to know which files are to be parsed and what format they are in. The format of the manifest file is validated using JSON Schema against the schema file, https://github.com/kbase/relation_engine/blob/develop/spec/datasets/djornl/manifest.schema.json.
+
 ### Cluster files
 
 TSV data
