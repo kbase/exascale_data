@@ -54,7 +54,7 @@ Notes: data from the `edge_descrip` column is tied to the `edge_type`, so it can
 | | pheno_description | pheno_descrip1 | string |  |
 | | pheno_pto_name | pheno_descrip2 | string | Plant Trait Ontology (PTO) term name |
 | | pheno_pto_description | pheno_descrip3 | string | PTO term description |
-| | pheno_reference | pheno_ref | string | Reference for phenotype |
+| | pheno_reference | pheno_ref | string | DOI of publication reference for phenotype  |
 | | user_notes | - | string | freeform text |
 
 Note: GO descriptions cannot be parsed into single term names at present as the data in the field is comma-separated, but does not take into account term names with commas in them.
