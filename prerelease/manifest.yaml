@@ -30,10 +30,60 @@ file_list:
     description: Iterative random forest Markov clustering, inflation set to 4
     date_created: "2019-08-19"
 
-  - data_type: cluster
-    prefix: markov_i6
-    path: cluster_data/out.aranetv2_subnet_AT-CX_top10percent_anno_AF_082919.abc.I6_named.tsv
-    file_format: tsv
-    title: Markov clustering, inflation 6
-    description: Iterative random forest Markov clustering, inflation set to 6
-    date_created: "2019-08-19"
+  - data_type    : cluster
+    prefix       : markov_i6
+    path         : cluster_data/out.aranetv2_subnet_AT-CX_top10percent_anno_AF_082919.abc.I6_named.tsv
+    file_format  : tsv
+    title        : Markov clustering, inflation 6
+    description  : Iterative random forest Markov clustering, inflation set to 6
+    date_created : "2019-08-19"
+
+
+  - data_type   : edge
+    path        : edge_data/ATRM_TF_to_Target_LitCurated_01082020.to-kbase-spec.tsv
+    file_format : tsv
+    title       : ATRM TF to Target LitCurated 01082020 TranscriptionFactorToGene
+    description : Contains literature mined and manually curated TF regulatory interactions for A.thaliana from 1701 TFFs from PlantTFDB 2.0 and 4663 TF-associated interactions. These were manually filtered (e.g. FPs, PPI interactions removed). They then added some from other sources. Downloaded from http://atrm.cbi.pku.edu.cn/download.php
+
+
+  - data_type   : edge
+    path        : edge_data/AraGWAS-subnet-permsig-geni.to-kbase-spec.tsv
+    file_format : tsv
+    title       : AraGWAS subnet permsig geni GeneToPhenotype
+    description : Phenotypes mapped to SNP position and GeneID if available from AraGWAS database filtered for overFDR threshold.
+
+
+  - data_type   : edge
+    path        : edge_data/AtPIN_PPI.to-kbase-spec.tsv
+    file_format : tsv
+    title       : AtPIN PPI
+    description : The interactions database includes all interactions present at the Arabidopsis thaliana Protein Interactome Database, the Predicted Interactome for Arabidopsis, Arabidopsis protein-protein interaction data curated from the literature by TAIR curators, BIOGRID and IntAct. https : //atpin.bioinfoguy.net/cgi-bin/atpin.pl
+      
+
+  - data_type   : edge
+    path        : edge_data/BIOGRID-ORGANISM-Arabidopsis_thaliana_Columbia-3.5.188.tab3.to-kbase-spec.tsv
+    file_format : tsv
+    title       : BIOGRID ORGANISM Arabidopsis thaliana Columbia 3.5.188 tab3 PPI
+    description : BioGRID interactions are relationships between two proteins or genes; the term “interaction” includes direct physical binding of two proteins, and co-existence in a stable complex and genetic interaction.  see https : //wiki.thebiogrid.org/doku.php/experimental_systems
+
+
+  - data_type   : edge
+    path        : edge_data/Wu2016_s015_Gene_to_Metab.to-kbase-spec.tsv
+    file_format : tsv
+    title       : Wu2016 s015 Gene-to-Metab GeneToPhenotype
+    description : GWAS hits ftom a Gene-to-Metaboiltes GWAS. Phenotypes (metabolites) have a unique ID from the Wu 2016 study and need to be given our own UID for future use.
+
+
+  - data_type   : edge
+    path        : edge_data/aranetv2_subnet_AT-LC.to-kbase-spec.tsv
+    file_format : tsv
+    title       : AraNetv2 subnet AT-LC PPI
+    description : Literature curated PPI of A. thaliana. https      : //www.inetbio.org/aranet/dl.php?f=AT-LC
+
+
+  - data_type   : edge
+    path        : edge_data/mentha_AT-PPI-3702_040319.to-kbase-spec.tsv
+    file_format : tsv
+    title       : Mentha AT 3702 040319 PPI
+    description : Mentha archives evidence collected from different sources and presents these data in a complete and comprehensive way. Its data comes from manually curated protein-protein interaction databases that have adhered to the IMEx consortium and assigns to each interaction a reliability score that takes into account all the supporting evidence.  https : //mentha.uniroma2.it/about.php
+
