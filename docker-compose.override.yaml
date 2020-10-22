@@ -1,0 +1,27 @@
+version: '3'
+
+# This docker-compose is for developer convenience and testing, not for running in production.
+
+services:
+
+  # For running the Flask server and tests
+  re_api:
+    build:
+      context: ${PWD}/relation_engine
+      dockerfile: ${PWD}/relation_engine/Dockerfile
+    volumes:
+      - ${PWD}/relation_engine:/app
+      - ${PWD}/relation_engine/spec:/spec
+      - ${PWD}/prerelease:/app/exascale_data
+    environment:
+      - RES_ROOT_DATA_PATH=/app/exascale_data
+
+  # A mock kbase auth server (see relation_engine_server/test/mock_auth/*.json)
+  auth:
+    volumes:
+      - ${PWD}/relation_engine/relation_engine_server/test/mock_auth:/config
+
+  # Mock workspace server (see relation_engine_server/test/mock_workspace/*.json)
+  workspace:
+    volumes:
+      - ${PWD}/relation_engine/relation_engine_server/test/mock_workspace:/config
