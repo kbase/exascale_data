@@ -42,19 +42,19 @@ From the python shell, start up the db server in the background:
 ```sh
 sh scripts/start_server.sh &
 ```
-### Using the DJORNL Exascale data parser
+### using the djornl exascale data parser
 
-Use the parser to load some data; if there are no errors in the data, you will get output detailing the number of nodes and edges added to the database. The shell environment variable `RES_ROOT_DATA_PATH` contains the path to the data directory containing `manifest.yaml` and the data files.
+use the parser to load some data; if there are no errors in the data, you will get output detailing the number of nodes and edges added to the database. the shell environment variable `res_root_data_path` contains the path to the data directory containing `manifest.yaml` and the data files.
 
-By default, `RES_ROOT_DATA_PATH` is set to point to the exascale data; that dataset can be loaded into the db with the command:
+by default, `res_root_data_path` is set to point to the exascale data; that dataset can be loaded into the db with the command:
 ```sh
 python -m importers.djornl.parser
 ```
 
-In this example, we load a small test dataset:
+in this example, we load a small test dataset:
 
 ```sh
-RES_ROOT_DATA_PATH=/app/spec/test/djornl/test_data python -m importers.djornl.parser
+res_root_data_path=/app/spec/test/djornl/test_data python -m importers.djornl.parser
 ```
 
 Successful output:
@@ -128,6 +128,19 @@ Close the python shell, and then stop the docker container and all the images th
 ```
 docker-compose -f relation_engine/docker-compose.yaml -f docker-compose.override.yaml down --remove-orphans
 ```
+
+### Note about running the parser without docker
+
+If docker is unavailable, it may still be possible to run the parser, eg:
+
+```sh
+cd exascale_data
+git clone https://github.com/kbase/relation_engine.git
+cd relation_engine
+RES_ROOT_DATA_PATH=../prerelease/ python -m importers.djornl.parser
+```
+
+The shell environment variable `RES_ROOT_DATA_PATH` contains the path to the data directory containing `manifest.yaml` and the data files.
 
 
 ### Adding new data
