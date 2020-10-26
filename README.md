@@ -42,19 +42,19 @@ From the python shell, start up the db server in the background:
 ```sh
 sh scripts/start_server.sh &
 ```
-### using the djornl exascale data parser
+### Using the DJORNL Exascale data parser
 
-use the parser to load some data; if there are no errors in the data, you will get output detailing the number of nodes and edges added to the database. the shell environment variable `res_root_data_path` contains the path to the data directory containing `manifest.yaml` and the data files.
+Use the parser to load some data; if there are no errors in the data, you will get output detailing the number of nodes and edges added to the database. The shell environment variable `RES_ROOT_DATA_PATH` contains the path to the data directory containing `manifest.yaml` and the data files.
 
-by default, `res_root_data_path` is set to point to the exascale data; that dataset can be loaded into the db with the command:
+By default, `RES_ROOT_DATA_PATH` is set to point to the exascale data; that dataset can be loaded into the db with the command:
 ```sh
 python -m importers.djornl.parser
 ```
 
-in this example, we load a small test dataset:
+In this example, we load a small test dataset:
 
 ```sh
-res_root_data_path=/app/spec/test/djornl/test_data python -m importers.djornl.parser
+RES_ROOT_DATA_PATH=/app/spec/test/djornl/test_data python -m importers.djornl.parser
 ```
 
 Successful output:
