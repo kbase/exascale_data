@@ -129,6 +129,19 @@ Close the python shell, and then stop the docker container and all the images th
 docker-compose -f relation_engine/docker-compose.yaml -f docker-compose.override.yaml down --remove-orphans
 ```
 
+### Note about running the parser without docker
+
+If docker is unavailable, it may still be possible to run the parser, eg:
+
+```sh
+cd exascale_data
+git clone https://github.com/kbase/relation_engine.git
+cd relation_engine
+RES_ROOT_DATA_PATH=../prerelease/ python -m importers.djornl.parser
+```
+
+The shell environment variable `RES_ROOT_DATA_PATH` contains the path to the data directory containing `manifest.yaml` and the data files.
+
 
 ### Adding new data
 
