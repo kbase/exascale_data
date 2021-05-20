@@ -75,32 +75,29 @@ file_list:
     description: "Mentha archives evidence collected from different sources and presents these data in a complete and comprehensive way. Its data comes from manually curated protein-protein interaction databases that have adhered to the IMEx consortium and assigns to each interaction a reliability score that takes into account all the supporting evidence.  https://mentha.uniroma2.it/about.php"
 
 
-  - data_type   : edge
+  - data_type   : edgethal_GOSemSim_BP_WangResCombined.score0.3.to-network-spec.tsv
     path        : edge_data/AraCyc_Gene_to_Gene.to-network-spec.tsv
     file_format : tsv
     title       : 'AraCyc_Gene_to_Gene'
-    description : 'foo'
+    description : 'TODO' # No readme
   - data_type   : edge
     path        : edge_data/Athal_GOSemSim_BP_WangResCombined.score0.3.to-network-spec.tsv
     file_format : tsv
     title       : 'Athal_GOSemSim_BP_WangResCombined.score0.3'
-    description : 'foo'
+    description : "GO networks are Gene-Gene networks where an edge indicates that two genes are similar to each other based on shared GO terms.  D.Kainer used the GoSemSim R package to get pairwise similarity between all GO annotated genes.  Only GO annotations with solid evidence codes were used. The following GO codes were dropped: badcodes <- c(IEA,ISS,NAS,ND,RCA) Two Semantic Similarity measures were used: 1. Wang: a graph-based measure 2. Resnik: a simple Information Content based measure.  The average was used as the final score."
   - data_type   : edge
     path        : edge_data/At_PPI_6merged.to-network-spec.tsv
     file_format : tsv
     title       : 'At_PPI_6merged'
-    description : 'foo'
+    description : "Made by taking the union of 6 different PPI networks: AraNet2 LC, AraNet2 HT, AraPPInet2 0.60, BIOGRID 4.3.194 physical, AtPIN, Mentha.  These 6 were all relatively good scoring with GOintersect. StringDB scored badly so was not included. dkainer (4-26-2021)"
   - data_type   : edge
     path        : edge_data/Oellrich_2015_supp9_Athal_gene-gene-phenosemsim.to-network-spec.tsv
     file_format : tsv
     title       : 'Oellrich_2015_supp9_Athal_gene-gene-phenosemsim'
-    description : 'foo'
+    description : "This is a network provided in the paper Oellrich 2015.  The study took the experimentally known phenotypes of over 2000 mutant konockout lines from Lloyd 2012 paper, and annotated them using the PATO trait ontology system. They then ran semantic similarity pairwise between each mutated gene resulting in a network of about 450,000 edges where an edge shows that two knocked out genes cause a phenotype that is semantically similar (0 > weight >= 1).  Uploaded by DKainer on Nov 16, 2020."
   - data_type   : edge
     path        : edge_data/Plantregmap_predicted_merged_Ath.minscore3_unweighted.to-network-spec.tsv
     file_format : tsv
     title       : 'Plantregmap_predicted_merged_Ath.minscore3_unweighted'
-    description : 'foo'
-
-
-
+    description : "Downloaded TF-to-gene data from http://plantregmap.cbi.pku.edu.cn/download.php#networks.  Contains predicted TF-Target relationships based on motifs, algorithms, ChipSeq. Plus some lit curated edges..  DK removed all Lit curated edges and then gave one point to each line of evidence (e.g. Motif, TFBS, ChipSeq...) for an edge. Then summed them up to give an edge weight..  Highest scoring regulatory edges have 5. Lowest scoring have 1.  Networks are named for their score threshold. e.g. minscore3 means there were atleast 3 supporting lines of evidence for the TF-Gene relationship."
 
