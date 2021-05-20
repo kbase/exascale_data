@@ -79,7 +79,7 @@ file_list:
     path        : edge_data/AraCyc_Gene_to_Gene.to-network-spec.tsv
     file_format : tsv
     title       : 'AraCyc_Gene_to_Gene'
-    description : 'TODO' # No readme
+    description : "AraCyc.  GeneA connects to GeneB if they are both enzymes and are linked by a common substrate or product. E.g. RXNA (GeneA) → Compound1 → RXNB (GeneB). Here GeneA connects to GeneB due to Compound1.  Date accessed 03/18/2021.  All enzymatic reactions and associated genes (enzymes) and compounds were downloaded from AraCyc as smarttables, and transformed by custom R script to generate the appropriate network format linking gene to gene based on intermediary compounds.  Bringing to-spec, 322 non-standard edges were removed and 3,243 duplicates were removed."
   - data_type   : edge
     path        : edge_data/Athal_GOSemSim_BP_WangResCombined.score0.3.to-network-spec.tsv
     file_format : tsv
