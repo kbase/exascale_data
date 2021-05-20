@@ -74,3 +74,33 @@ file_list:
     title: Mentha AT 3702 040319 PPI
     description: "Mentha archives evidence collected from different sources and presents these data in a complete and comprehensive way. Its data comes from manually curated protein-protein interaction databases that have adhered to the IMEx consortium and assigns to each interaction a reliability score that takes into account all the supporting evidence.  https://mentha.uniroma2.it/about.php"
 
+
+  - data_type   : edge
+    path        : edge_data/AraCyc_Gene_to_Gene.to-network-spec.tsv
+    file_format : tsv
+    title       : 'AraCyc_Gene_to_Gene'
+    description : 'foo'
+  - data_type   : edge
+    path        : edge_data/Athal_GOSemSim_BP_WangResCombined.score0.3.to-network-spec.tsv
+    file_format : tsv
+    title       : 'Athal_GOSemSim_BP_WangResCombined.score0.3'
+    description : 'foo'
+  - data_type   : edge
+    path        : edge_data/At_PPI_6merged.to-network-spec.tsv
+    file_format : tsv
+    title       : 'At_PPI_6merged'
+    description : 'foo'
+  - data_type   : edge
+    path        : edge_data/Oellrich_2015_supp9_Athal_gene-gene-phenosemsim.to-network-spec.tsv
+    file_format : tsv
+    title       : 'Oellrich_2015_supp9_Athal_gene-gene-phenosemsim'
+    description : 'foo'
+  - data_type   : edge
+    path        : edge_data/Plantregmap_predicted_merged_Ath.minscore3_unweighted.to-network-spec.tsv
+    file_format : tsv
+    title       : 'Plantregmap_predicted_merged_Ath.minscore3_unweighted'
+    description : 'foo'
+
+
+
+
