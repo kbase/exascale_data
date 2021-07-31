@@ -28,10 +28,10 @@ file_list:
     date_created: "2019-08-19"
 
   - data_type: node
-    path: aranet2-aragwas-MERGED-AMW-v2_091319_nodeTable.csv
-    file_format: csv
-    description: Merged AraNet AraGWAS gene and phenotype data
-    date_created: "2019-09-13"
+    path: Ath_master_annotation_v01.txt
+    file_format: tsv
+    description: "TAIR10 gene models, aliases, deflines; TAIR10 2021 GO; Araport11 Mapman 2018; Oellrich et al (2015) knockout annotations (edited) (https://www.arabidopsis.org/about/citingtair.jsp, https://academic.oup.com/plcell/article/32/9/2683/6115718, https://mapman.gabipd.org/mapman, https://doi.org/10.1186/s13007-015-0053-y)."
+    date_created: "2021-07-31"
 
   - data_type: edge
     path: edge_data/AraGWAS-subnet-permsig-geni.to-kbase-spec.tsv
