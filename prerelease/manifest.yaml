@@ -63,7 +63,7 @@ file_list:
     path        : edge_data/AT-UU-PP-00-AA-01.tsv
     file_format : tsv
     title       : PPI-6merged
-    description : GeneA connects to GeneB if their protein products have been shown to bind to interact with each other, typically through experimental evidence. The PPI-6merged network is the union of 6 different A.thaliana PPI networks: AraNet2 LC, AraNet2 HT, AraPPInet2 0.60, BIOGRID 4.3.194 physical, AtPIN, Mentha. These 6 were all relatively high scoring with GOintersect. StringDB scored badly so was not included
+    description : "GeneA connects to GeneB if their protein products have been shown to bind to interact with each other, typically through experimental evidence. The PPI-6merged network is the union of 6 different A.thaliana PPI networks: AraNet2 LC, AraNet2 HT, AraPPInet2 0.60, BIOGRID 4.3.194 physical, AtPIN, Mentha. These 6 were all relatively high scoring with GOintersect. StringDB scored badly so was not included"
 
   - data_type   : edge
     path        : edge_data/AT-UU-RE-00-AA-01.tsv
