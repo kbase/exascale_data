@@ -28,49 +28,70 @@ file_list:
     date_created: "2019-08-19"
 
   - data_type: node
-    path: aranet2-aragwas-MERGED-AMW-v2_091319_nodeTable.csv
-    file_format: csv
-    description: Merged AraNet AraGWAS gene and phenotype data
-    date_created: "2019-09-13"
-
-  - data_type: edge
-    path: edge_data/AraGWAS-subnet-permsig-geni.to-kbase-spec.tsv
+    path: Ath_master_annotation_v01.txt
     file_format: tsv
-    title: AraGWAS subnet permsig geni GeneToPhenotype
-    description: Phenotypes mapped to SNP position and GeneID if available from AraGWAS database filtered for overFDR threshold.
+    description: "TAIR10 gene models, aliases, deflines; TAIR10 2021 GO; Araport11 Mapman 2018; Oellrich et al (2015) knockout annotations (edited) (https://www.arabidopsis.org/about/citingtair.jsp, https://academic.oup.com/plcell/article/32/9/2683/6115718, https://mapman.gabipd.org/mapman, https://doi.org/10.1186/s13007-015-0053-y)."
+    date_created: "2021-07-31"
 
+  # Transformed file is 117MB, which exceeds GitHub file size limits.
+  # - data_type   : edge
+  #   path        : edge_data/AT-UU-GO-03-AA-01.tsv
+  #   file_format : tsv
+  #   title       : GO
+  #   description : GeneA connects to GeneB if the two genes have semantically similar GO terms (with a similarity score > 0). This network is used to evaluate other networks for biological functional content.
 
-  - data_type: edge
-    path: edge_data/AtPIN_PPI.to-kbase-spec.tsv
-    file_format: tsv
-    title: AtPIN PPI
-    description: "The interactions database includes all interactions present at the Arabidopsis thaliana Protein Interactome Database, the Predicted Interactome for Arabidopsis, Arabidopsis protein-protein interaction data curated from the literature by TAIR curators, BIOGRID and IntAct. https://atpin.bioinfoguy.net/cgi-bin/atpin.pl"
+  - data_type   : edge
+    path        : edge_data/AT-UU-KS-00-AA-01.tsv
+    file_format : tsv
+    title       : Knockout Similarity
+    description : GeneA connects to GeneB if the phenotypic effect of knocking out GeneA is similar to the phenotypic effect of knocking out GeneB. Similarity is based on Phenotype Ontology semantic similarity.
 
+  # "Coming soon, from Ashley"
+  # - data_type   : edge
+  #   path        : edge_data/AT-UU-PX-01-AA-01.tsv # Not found.
+  #   file_format : tsv
+  #   title       : PEN-Diversity
+  #   description : GeneA connects to GeneB if the expression vector of GeneA is an important predictor of the expression vector of GeneB in an iRF model, where all other genes’ expression are included as covariates. The iRF model is a feature-selection version of Random Forest.
 
-  - data_type: edge
-    path: edge_data/BIOGRID-ORGANISM-Arabidopsis_thaliana_Columbia-3.5.188.tab3.to-kbase-spec.tsv
-    file_format: tsv
-    title: BIOGRID ORGANISM Arabidopsis thaliana Columbia 3.5.188 tab3 PPI
-    description: "BioGRID interactions are relationships between two proteins or genes; the term “interaction” includes direct physical binding of two proteins, and co-existence in a stable complex and genetic interaction.  see https://wiki.thebiogrid.org/doku.php/experimental_systems"
+  - data_type   : edge
+    path        : edge_data/AT-UU-GA-01-AA-01.tsv
+    file_format : tsv
+    title       : Coex Gene-Atlas
+    description : Coexpression network obtained from AtGenie.org. It uses expression array data from multiple tissues to calculate the correlation between genes.
 
+  - data_type   : edge
+    path        : edge_data/AT-UU-PP-00-AA-01.tsv
+    file_format : tsv
+    title       : PPI-6merged
+    description : "GeneA connects to GeneB if their protein products have been shown to bind to interact with each other, typically through experimental evidence. The PPI-6merged network is the union of 6 different A.thaliana PPI networks: AraNet2 LC, AraNet2 HT, AraPPInet2 0.60, BIOGRID 4.3.194 physical, AtPIN, Mentha. These 6 were all relatively high scoring with GOintersect. StringDB scored badly so was not included"
 
-  - data_type: edge
-    path: edge_data/Wu2016_s015_Gene_to_Metab.to-kbase-spec.tsv
-    file_format: tsv
-    title: Wu2016 s015 Gene-to-Metab GeneToPhenotype
-    description: GWAS hits ftom a Gene-to-Metaboiltes GWAS. Phenotypes (metabolites) have a unique ID from the Wu 2016 study and need to be given our own UID for future use.
+  - data_type   : edge
+    path        : edge_data/AT-UU-RE-00-AA-01.tsv
+    file_format : tsv
+    title       : Regulation-ATRM
+    description : GeneA connects to GeneB if GeneA is a Transcription Factor (TF) that is shown to interact with GeneB (which may or may not be a TF). This dataset contains literature mined and manually curated TF regulatory interactions for A.thaliana. Started from 1701 TFs from PlantTFDB 2.0 and retrieved 4663 TF-associated interactions. These were manually filtered (e.g. FPs, PPI interactions removed). They then added some from other sources. Final result is 1431 confirmed TF regulatory interactions, of which 637 are TF-TF.
 
+  - data_type   : edge
+    path        : edge_data/AT-UU-RP-03-AA-01.tsv
+    file_format : tsv
+    title       : Regulation-Plantregmap
+    description : This network contains computationally predicted TF-Target relationships based on motifs, binding sites, ChipSeq data
 
-  - data_type: edge
-    path: edge_data/aranetv2_subnet_AT-LC.to-kbase-spec.tsv
-    file_format: tsv
-    title: AraNetv2 subnet AT-LC PPI
-    description: "Literature curated PPI of A. thaliana. https://www.inetbio.org/aranet/dl.php?f=AT-LC"
+  # No GPFS path
+  # - data_type   : edge
+  #   path        : edge_data/AT-UU-DU-07-AA-01.tsv # Not found.
+  #   file_format : tsv
+  #   title       : CoEvolution-DUO
+  #   description : GeneA connects to GeneB if a SNP in GeneA is correlated with a SNP in GeneB using the DUO metric (cite). SNP data is from the full 1001 Genomes.
 
+  - data_type   : edge
+    path        : edge_data/AT-UU-CD-00-AA-01.tsv
+    file_format : tsv
+    title       : CoDomain
+    description : GeneA connects to GeneB if they share one or more common protein domains. Network was obtained from AraNet2.
 
-  - data_type: edge
-    path: edge_data/mentha_AT-PPI-3702_040319.to-kbase-spec.tsv
-    file_format: tsv
-    title: Mentha AT 3702 040319 PPI
-    description: "Mentha archives evidence collected from different sources and presents these data in a complete and comprehensive way. Its data comes from manually curated protein-protein interaction databases that have adhered to the IMEx consortium and assigns to each interaction a reliability score that takes into account all the supporting evidence.  https://mentha.uniroma2.it/about.php"
-
+  - data_type   : edge
+    path        : edge_data/AT-UU-RX-00-AA-01.tsv
+    file_format : tsv
+    title       : Metabolic-AraCyc
+    description : GeneA connects to GeneB if they are both enzymatic and are linked by a common substrate or product. E.g. RXNA (GeneA) → Compound1 → RXNB (GeneB). Here GeneA connects to GeneB due to Compound1.
