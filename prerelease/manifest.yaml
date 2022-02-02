@@ -3,42 +3,17 @@ release_date: "2020-08-06"
 description: Preliminary Jacobson dataset
 file_list:
 
-  - data_type: cluster
-    cluster_prefix: markov_i2
-    path: cluster_data/out.aranetv2_subnet_AT-CX_top10percent_anno_AF_082919.abc.I2_named.tsv
-    file_format: tsv
-    title: Markov clustering, inflation 2
-    description: Iterative random forest Markov clustering, inflation set to 2
-    date_created: "2019-08-19"
-
-  - data_type: cluster
-    cluster_prefix: markov_i4
-    path: cluster_data/out.aranetv2_subnet_AT-CX_top10percent_anno_AF_082919.abc.I4_named.tsv
-    file_format: tsv
-    title: Markov clustering, inflation 4
-    description: Iterative random forest Markov clustering, inflation set to 4
-    date_created: "2019-08-19"
-
-  - data_type: cluster
-    cluster_prefix: markov_i6
-    path: cluster_data/out.aranetv2_subnet_AT-CX_top10percent_anno_AF_082919.abc.I6_named.tsv
-    file_format: tsv
-    title: Markov clustering, inflation 6
-    description: Iterative random forest Markov clustering, inflation set to 6
-    date_created: "2019-08-19"
-
   - data_type: node
     path: Ath_master_annotation_v01.txt
     file_format: tsv
     description: "TAIR10 gene models, aliases, deflines; TAIR10 2021 GO; Araport11 Mapman 2018; Oellrich et al (2015) knockout annotations (edited) (https://www.arabidopsis.org/about/citingtair.jsp, https://academic.oup.com/plcell/article/32/9/2683/6115718, https://mapman.gabipd.org/mapman, https://doi.org/10.1186/s13007-015-0053-y)."
     date_created: "2021-07-31"
 
-  # Transformed file is 117MB, which exceeds GitHub file size limits.
-  # - data_type   : edge
-  #   path        : edge_data/AT-UU-GO-03-AA-01.tsv
-  #   file_format : tsv
-  #   title       : GO
-  #   description : GeneA connects to GeneB if the two genes have semantically similar GO terms (with a similarity score > 0). This network is used to evaluate other networks for biological functional content.
+  - data_type   : edge
+    path        : edge_data/AT-UU-GO-05-AA-01.tsv
+    file_format : tsv
+    title       : GO
+    description : GeneA connects to GeneB if the two genes have semantically similar GO terms (with a similarity score > 0). This network is used to evaluate other networks for biological functional content.
 
   - data_type   : edge
     path        : edge_data/AT-UU-KS-00-AA-01.tsv
@@ -46,12 +21,11 @@ file_list:
     title       : Knockout Similarity
     description : GeneA connects to GeneB if the phenotypic effect of knocking out GeneA is similar to the phenotypic effect of knocking out GeneB. Similarity is based on Phenotype Ontology semantic similarity.
 
-  # "Coming soon, from Ashley"
-  # - data_type   : edge
-  #   path        : edge_data/AT-UU-PX-01-AA-01.tsv # Not found.
-  #   file_format : tsv
-  #   title       : PEN-Diversity
-  #   description : GeneA connects to GeneB if the expression vector of GeneA is an important predictor of the expression vector of GeneB in an iRF model, where all other genes’ expression are included as covariates. The iRF model is a feature-selection version of Random Forest.
+  - data_type   : edge
+    path        : edge_data/AT-UU-PX-01-AA-01.tsv
+    file_format : tsv
+    title       : PEN-Diversity
+    description : GeneA connects to GeneB if the expression vector of GeneA is an important predictor of the expression vector of GeneB in an iRF model, where all other genes’ expression are included as covariates. The iRF model is a feature-selection version of Random Forest.
 
   - data_type   : edge
     path        : edge_data/AT-UU-GA-01-AA-01.tsv
@@ -77,12 +51,11 @@ file_list:
     title       : Regulation-Plantregmap
     description : This network contains computationally predicted TF-Target relationships based on motifs, binding sites, ChipSeq data
 
-  # No GPFS path
-  # - data_type   : edge
-  #   path        : edge_data/AT-UU-DU-07-AA-01.tsv # Not found.
-  #   file_format : tsv
-  #   title       : CoEvolution-DUO
-  #   description : GeneA connects to GeneB if a SNP in GeneA is correlated with a SNP in GeneB using the DUO metric (cite). SNP data is from the full 1001 Genomes.
+  - data_type   : edge
+    path        : edge_data/AT-UU-DU-67-AA-01.tsv
+    file_format : tsv
+    title       : CoEvolution-DUO
+    description : GeneA connects to GeneB if a SNP in GeneA is correlated with a SNP in GeneB using the DUO metric (https://doi.org/10.1101/2020.01.28.923730). SNP data is from the full 1001 Genomes.
 
   - data_type   : edge
     path        : edge_data/AT-UU-CD-00-AA-01.tsv
@@ -95,3 +68,9 @@ file_list:
     file_format : tsv
     title       : Metabolic-AraCyc
     description : GeneA connects to GeneB if they are both enzymatic and are linked by a common substrate or product. E.g. RXNA (GeneA) → Compound1 → RXNB (GeneB). Here GeneA connects to GeneB due to Compound1.
+
+  - data_type   : edge
+    path        : edge_data/AT-UU-PY-01-LF-01.tsv
+    file_format : tsv
+    title       : Predictive CG Methylation
+    description : GeneA connects to GeneB if the CG methylation vector of GeneA is an important predictor of the CG methylation vector of GeneB in an iRF model, where all other genes' CG methylation states are included as covariates. The iRF model is an expansion on Random Forest, a feature selection model. 
